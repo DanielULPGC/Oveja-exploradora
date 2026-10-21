@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lola 3.3 · Un prado para todos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#reading">Saltar al cuento</a>
+
+  <header class="top">
+    <div class="brand">🐑 <strong>Un prado para todos</strong><small>Lola 3.3 · Educación Infantil, 5 años</small></div>
+    <div class="child-tools">
+      <button id="listen" type="button" class="big">🔊 Escuchar</button>
+      <button id="stop" type="button" class="big" hidden>■ Parar</button>
+    </div>
+    <button id="teacher-btn" type="button" class="teacher-btn" aria-haspopup="dialog">Menú docente</button>
+  </header>
+
+  <main class="book">
+    <figure class="scene">
+      <div class="art" id="art">
+        <img id="bg" alt="">
+        <div class="hotspots" id="hotspots"></div>
+      </div>
+      <figcaption id="caption"></figcaption>
+    </figure>
+
+    <section class="reading" id="reading">
+      <div class="meta"><span id="page-number"></span><span id="topic"></span></div>
+      <h1 id="heading" tabindex="-1"></h1>
+      <p id="narrative" class="narrative"></p>
+      <section class="activity" id="activity" aria-labelledby="mission"></section>
+      <div class="companion" id="companion">
+        <div class="lola-wrap"><img id="lola-pose" src="assets/lola-frontal.webp" alt="" aria-hidden="true" width="519" height="600"><span class="zzz" aria-hidden="true">Zzz</span></div>
+        <div class="lola-wrap friend-wrap" id="friend-wrap" hidden><img id="friend-pose" src="assets/bruno-frontal.webp" alt="" aria-hidden="true" width="419" height="600"></div>
+        <p id="feedback" class="feedback bubble" role="status" aria-live="polite"></p>
+      </div>
+      <nav class="nav" aria-label="Páginas del cuento">
+        <button id="previous" type="button">← Anterior</button>
+        <ol class="dots" id="dots" aria-label="Progreso"></ol>
+        <button id="next" type="button">Siguiente →</button>
+      </nav>
+    </section>
+  </main>
+
+  <dialog id="teacher" aria-labelledby="teacher-title">
+    <div class="dlg-head">
+      <h2 id="teacher-title">Menú docente</h2>
+      <button id="teacher-close" type="button" aria-label="Cerrar menú docente">✕</button>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-obs" aria-controls="pane-obs" aria-selected="true">Observación</button>
+      <button role="tab" id="tab-guide" aria-controls="pane-guide" aria-selected="false" tabindex="-1">Orientaciones</button>
+      <button role="tab" id="tab-settings" aria-controls="pane-settings" aria-selected="false" tabindex="-1">Ajustes</button>
+    </div>
+
+    <section id="pane-obs" role="tabpanel" aria-labelledby="tab-obs">
+      <p class="note">Registro de <strong>observación directa</strong> que completa la persona adulta (Decreto 196/2022, art. 13). El recurso no puntúa ni califica. <strong>No escriba nombres</strong>: utilice un código.</p>
+      <label class="code">Código del niño, la niña o el grupo
+        <input id="code" maxlength="40" autocomplete="off" placeholder="Ej.: 5B-03">
+      </label>
+      <div id="obs-table"></div>
+      <div class="row">
+        <button id="new-record" type="button">Guardar y empezar otro registro</button>
+        <button id="export" type="button">Exportar todos los registros (CSV)</button>
+      </div>
+      <p id="records-info" class="note"></p>
+    </section>
+
+    <section id="pane-guide" role="tabpanel" aria-labelledby="tab-guide" hidden>
+      <div id="guide"></div>
+    </section>
+
+    <section id="pane-settings" role="tabpanel" aria-labelledby="tab-settings" hidden>
+      <fieldset>
+        <legend>Lectura</legend>
+        <label><input type="checkbox" id="set-upper"> Texto en mayúsculas</label>
+        <label><input type="checkbox" id="set-large"> Letra grande</label>
+        <label><input type="checkbox" id="set-slow" checked> Lectura en voz alta lenta</label>
+        <label><input type="checkbox" id="set-follow" checked> Resaltar cada palabra mientras se lee</label>
+      </fieldset>
+      <fieldset>
+        <legend>Interacción</legend>
+        <label><input type="checkbox" id="set-sound" checked> Sonidos de respuesta</label>
+        <label><input type="checkbox" id="set-motion"> Reducir movimiento</label>
+        <label><input type="checkbox" id="set-rings" checked> Señalar las zonas que se pueden tocar</label>
+      </fieldset>
+      <fieldset>
+        <legend>Datos de este dispositivo</legend>
+        <p class="note">El progreso y los registros se guardan solo en este navegador. No se envían a ningún servidor.</p>
+        <button id="wipe" type="button">Borrar todo lo guardado</button>
+        <span id="wipe-confirm" hidden>¿Seguro? <button id="wipe-yes" type="button">Sí, borrar</button> <button id="wipe-no" type="button">No</button></span>
+      </fieldset>
+      <p class="note" id="voice-info"></p>
+    </section>
+  </dialog>
+
+  <footer>Recurso educativo experimental · Sin cuentas ni envío de datos · Pensado para la lectura compartida con una persona adulta.</footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
