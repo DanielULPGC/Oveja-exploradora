@@ -25,7 +25,7 @@ const SCENES = [
   {
     id: 's1', type: 'emociones',
     title: 'Lola y las preguntas del prado', topic: 'Emociones y pertenencia',
-    image: 'assets/escena-1-prado.png', ratio: '844 / 598',
+    image: 'escena-1-prado.png', ratio: '844 / 598',
     caption: 'Lola, una oveja de lana oscura con gafas, abraza un libro. Al fondo, otras ovejas blancas ríen y saltan.',
     text: 'En un prado lleno de ovejas blancas vivía Lola. Su lana era oscura, llevaba gafas redondas y le encantaban los libros. Mientras algunas ovejas saltaban, ella imaginaba aventuras entre las páginas. Un día escuchó una risa y se preguntó: «¿Hay algo malo en que me gusten cosas distintas?». Se quedó pensativa junto a su árbol favorito.',
     emotions: ['😢 Triste', '😔 Sola', '😟 Preocupada', '🤔 Curiosa', '😊 Contenta'],
@@ -45,7 +45,7 @@ const SCENES = [
   {
     id: 's2', type: 'conteo',
     title: 'El consejo del búho', topic: 'Contar y dialogar',
-    image: 'assets/escena-2-buho.webp', ratio: '875 / 630',
+    image: 'escena-2-buho.webp', ratio: '875 / 630',
     caption: 'Lola, con su mochila roja, habla con el búho Bruno, que está posado en la rama de un árbol lleno de libros.',
     text: 'El búho Bruno escuchó a Lola con atención. «No necesitas ser igual que las demás para formar parte del prado», le dijo. «Cada oveja tiene intereses diferentes y todas merecen respeto». Bruno miró la mochila de Lola. «¿Me enseñas los libros que llevas ahí?». Lola sonrió: alguien quería escucharla.',
     hotspots: [{ id: 'mochila', label: 'Mochila de Lola', x: 10, y: 62, w: 28, h: 27 }],
@@ -61,7 +61,7 @@ const SCENES = [
   {
     id: 's3', type: 'letras',
     title: 'Las letras de una aventura', topic: 'Acercamiento a la lengua escrita',
-    image: 'assets/escena-3-letras.webp', ratio: '878 / 603',
+    image: 'escena-3-letras.webp', ratio: '878 / 603',
     caption: 'Lola, muy contenta, mira las letras de colores que salen volando de un libro abierto.',
     text: 'Lola abrió su libro favorito. En una página había una palabra que le hacía imaginar caminos imposibles: MAGIA. Bruno la leyó despacio y Lola descubrió sus letras. Después inventaron juntos una historia sobre una puerta secreta. No hacía falta saber leer todas las palabras para disfrutar de aquel momento.',
     word: 'MAGIA',
@@ -80,7 +80,7 @@ const SCENES = [
   {
     id: 's4', type: 'relato',
     title: 'El libro que reunió al rebaño', topic: 'Imaginar y contar',
-    image: 'assets/escena-4-aventuras.webp', ratio: '892 / 576',
+    image: 'escena-4-aventuras.webp', ratio: '892 / 576',
     caption: 'Del libro de Lola salen un castillo, un dragón, un cohete y un barco pirata. Un gato duerme a su lado.',
     text: 'Al ver las ilustraciones, otras ovejas se acercaron. Lola les mostró un cohete, un dragón, un castillo y un barco pirata. Cada una imaginó una aventura diferente. Una quería viajar por el espacio; otra, explorar un bosque antiguo. Lola comprendió que compartir sus libros podía abrir muchas conversaciones.',
     hotspots: [
@@ -99,13 +99,13 @@ const SCENES = [
   {
     id: 's5', type: 'convivencia',
     title: 'Un prado para todos', topic: 'Ordenar la historia y convivir',
-    image: 'assets/escena-5-convivencia.webp', ratio: '930 / 609',
+    image: 'escena-5-convivencia.webp', ratio: '930 / 609',
     caption: 'Lola lee un libro grande rodeada de ovejas blancas que escuchan sonrientes. A su lado hay una pila de libros.',
     text: 'Desde entonces, las ovejas reservaron un momento para escuchar las historias de Lola y otro para compartir sus propios juegos. No todas disfrutaban de las mismas actividades, y eso estaba bien. Lola seguía siendo Lola: una oveja de lana oscura, gafas redondas y muchos cuentos. Ahora sabía que pertenecía al prado sin tener que dejar de ser ella misma.',
     sequence: [
-      { id: 'q1', image: 'assets/escena-1-prado.png', label: 'Lola, pensativa, sola en el prado' },
-      { id: 'q2', image: 'assets/escena-2-buho.webp', label: 'Lola habla con el búho Bruno' },
-      { id: 'q3', image: 'assets/escena-5-convivencia.webp', label: 'Lola lee con todo el rebaño' }
+      { id: 'q1', image: 'escena-1-prado.png', label: 'Lola, pensativa, sola en el prado' },
+      { id: 'q2', image: 'escena-2-buho.webp', label: 'Lola habla con el búho Bruno' },
+      { id: 'q3', image: 'escena-5-convivencia.webp', label: 'Lola lee con todo el rebaño' }
     ],
     slots: ['Primero', 'Después', 'Al final'],
     options: [
@@ -219,7 +219,7 @@ const resetSupport = key => { support[key] = 0; };
    - En la escena 1 Lola no aparece hasta que se confirma la interpretación, para no sugerir la emoción.
    - Con «Reducir movimiento» solo cambian las poses, sin desplazamientos. */
 const POSES = ['frontal', 'alegre', 'sorprendida', 'caminando', 'lateral', 'trasera', 'descansando'];
-POSES.forEach(p => { const i = new Image(); i.src = `assets/lola-${p}.webp`; });
+POSES.forEach(p => { const i = new Image(); i.src = `lola-${p}.webp`; });
 let poseTimer = null, idleTimer = null, currentPose = 'frontal';
 const lolaVisible = () => !(cur().id === 's1' && !app.act.s1.done);
 /* Personajes que acompañan a Lola. Sus poses siguen a las de Lola.
@@ -231,7 +231,7 @@ const FRIEND_POSES = {
   bruno: { frontal: 'frontal', alegre: 'feliz', sorprendida: 'sorprendido', caminando: 'perfil', lateral: 'frontal', trasera: 'perfil', descansando: 'cansado' },
   exploradora: { frontal: 'frontal', alegre: 'alegre', sorprendida: 'brujula', caminando: 'perfil', lateral: 'curiosa', trasera: 'perfil', descansando: 'cansada' }
 };
-Object.entries(FRIEND_POSES).forEach(([who, map]) => new Set(Object.values(map)).forEach(p => { const i = new Image(); i.src = `assets/${who}-${p}.webp`; }));
+Object.entries(FRIEND_POSES).forEach(([who, map]) => new Set(Object.values(map)).forEach(p => { const i = new Image(); i.src = `${who}-${p}.webp`; }));
 const friendOf = () => FRIENDS[cur().id] || null;
 function syncFriend() {
   const who = friendOf();
@@ -239,7 +239,7 @@ function syncFriend() {
   if (who) {
     const p = FRIEND_POSES[who][currentPose] || 'frontal';
     const f = $('friend-pose');
-    f.src = `assets/${who}-${p}.webp`;
+    f.src = `${who}-${p}.webp`;
     f.dataset.pose = p;
     f.dataset.who = who;
   }
@@ -248,7 +248,7 @@ function pose(name, ms) {
   const img = $('lola-pose');
   clearTimeout(poseTimer);
   currentPose = name;
-  img.src = `assets/lola-${name}.webp`;
+  img.src = `lola-${name}.webp`;
   img.dataset.pose = name;
   $('companion').classList.toggle('sleeping', name === 'descansando');
   syncFriend();
@@ -510,7 +510,7 @@ const RENDERERS = {
       box.append(mission(`Bruno quiere ${NUMEROS[s.target]} libros para su estantería.`, `Toca los libros para dárselos. Luego pulsa «¡Listo!».`));
       box.append(shelf);
       const brunoShelf = el('div', { class: 'bruno-shelf', 'aria-label': 'Estantería de Bruno' },
-        el('img', { src: 'assets/bruno-frontal.webp', alt: '', 'aria-hidden': 'true', class: 'shelf-bruno' }),
+        el('img', { src: 'bruno-frontal.webp', alt: '', 'aria-hidden': 'true', class: 'shelf-bruno' }),
         ...st.given.map(k => el('span', { class: 'mini-book', style: `background:${LIBROS[k].color}` })));
       box.append(brunoShelf);
       box.append(el('button', {
